@@ -935,3 +935,97 @@ Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.3ms)
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
   [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for 127.0.0.1 at 2018-07-18 13:10:07 +0700
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/tuquyet/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/tuquyet/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 13ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-18 13:10:11 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 161ms (Views: 156.0ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/users/9" for 127.0.0.1 at 2018-07-18 13:10:16 +0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BBtqmLGXYUJnzlS7hzBDzwR6HqKNDM9pFMHY6K6xvKpYVur5Uhe7SVkhPp7tUZvurugv30nM7VlSiA2S17qKhQ==", "id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 9]]
+=================User 9 was destroyed=================
+  [1m[35m (76.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 89ms (ActiveRecord: 78.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-18 13:10:17 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/8" for 127.0.0.1 at 2018-07-18 13:10:22 +0700
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GEAiOheEn6WFCM61IZHDX8maQMCouMACdl7RBkcZnvtEDaJb9ARFrrvnpJBL8Bt+YwhxvWx44jIwFwR8PhKo1A==", "id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 8]]
+=================User 8 was destroyed=================
+  [1m[35m (73.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users
+Completed 302 Found in 80ms (ActiveRecord: 74.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-18 13:10:22 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/7/edit" for 127.0.0.1 at 2018-07-18 13:10:28 +0700
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (14.9ms)
+  Rendered users/edit.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/7" for 127.0.0.1 at 2018-07-18 13:10:36 +0700
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"In/gmqG4NiUwTDaYYdiJQ9iL/4K7RRU6gB71BPTxllYRV6wNDsit/OBdr0c/nv5eIGaTe8xJ7iG0T2XL1XXElg==", "user"=>{"name"=>"XXX", "email"=>"mathmakemestronger1252"}, "commit"=>"Update User", "id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2018-07-18 06:10:36.480898"], ["id", 7]]
+  [1m[35m (180.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 188ms (ActiveRecord: 181.6ms)
+
+
+Started GET "/users/7" for 127.0.0.1 at 2018-07-18 13:10:36 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 39ms (Views: 36.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-07-18 13:10:39 +0700
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 24ms (Views: 22.1ms | ActiveRecord: 0.2ms)
+
+

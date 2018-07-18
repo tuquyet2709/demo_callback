@@ -1,0 +1,43 @@
+class User < ApplicationRecord
+  after_initialize do |user|
+    puts "You have initialized an object!"
+  end
+ 
+  after_find do |user|
+    puts "You have found an object!"
+  end
+
+  after_touch do |user|
+    puts "You have touched an object"
+  end
+
+  before_save do |user|
+    puts 'before save'
+  end
+
+  after_save do |user|
+    puts 'after_save'
+  end
+
+  around_save do |user|
+    puts 'in around save'
+    yield # User saved
+    puts 'out around save'
+  end
+end
+ 
+>> User.new
+You have initialized an object!
+=> #<User id: nil>
+ 
+>> User.first
+You have found an object!
+You have initialized an object!
+=> #<User id: 1>
+
+>> u = User.create(name: 'Kuldeep')
+=> #<User id: 1, name: "Kuldeep", created_at: "2013-11-25 12:17:49", updated_at: "2013-11-25 12:17:49">
+ 
+>> u.touch
+You have touched an object
+=> true
